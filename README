@@ -1,0 +1,22 @@
+README
+
+0). How to compile?
+* Type "tar -xvf <tarname?" without quotes to unpack tarball
+* Type "make" without quotes to build awget and ss.
+
+1). AWGET
+* The executable "awget" expects at most two arguments in the order "awget <URL> [-c chainfile]"
+* If a chainfile argument is not supplied, it reads a local copy in the current directory, named chaingang.txt
+* The URL is sanity checked via "basename"
+* The URL supplied is expected to point to a file that exists. AWGET checks for existance via "wget --spider"
+* If a file already exists with the same name, AWGET appends a timestamp to the new filename
+
+2). SS
+* The execcutable expects at most 1 argument, "ss [-p <port>]"
+* If no port is supplied, ss binds to an availabe port at random
+* Upon receieving the file (either by downloading from a ss or wget), it transmits the file in 5KB bursts (5 packets 1KB each)
+* Larger files will take LONGER to download
+
+3). How to run?
+* On a command terminal, type "./ss -p <PORT>" or "./ss" without the quotes to launch the ss.
+* On a command terminal, type "./awget <URL> -c <chainfile>" or "./awget <url>" without the quotes to launch awget.  
